@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensibiliser au handicap – Catalogue APF France handicap</title>
+<style>
+  :root{
+    --navy:#003366;
+    --blue:#00A6D6;
+    --orange:#F57E20;
+    --gold:#FFD700;
+    --light:#F2F7FB;
+    --text:#1d2b36;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',Inter,system-ui,Arial,sans-serif;color:var(--text);background:#fff;line-height:1.55}
+  .wrap{max-width:1050px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:'Segoe UI',Inter,system-ui,sans-serif;color:var(--navy);line-height:1.2}
+  p{margin-bottom:.8em}
+  ul{margin:0 0 1em 1.2em}
+  li{margin-bottom:.35em}
+
+  /* Header */
+  header.hero{background:linear-gradient(135deg,var(--navy) 0%,#024b8f 60%,var(--blue) 100%);color:#fff;padding:64px 0 72px;text-align:center}
+  .logo{display:inline-flex;align-items:center;gap:14px;margin-bottom:34px}
+  .logo svg{flex:none}
+  .logo span{font-size:1.25rem;font-weight:700;letter-spacing:.03em}
+  .logo small{display:block;font-weight:400;font-size:.72rem;opacity:.85;letter-spacing:.12em;text-transform:uppercase}
+  header.hero h1{color:#fff;font-size:clamp(1.9rem,4.5vw,3rem);text-transform:uppercase;letter-spacing:.04em;margin-bottom:14px}
+  header.hero .lead{font-size:clamp(1rem,2vw,1.25rem);max-width:760px;margin:0 auto 10px;color:#eaf4fb}
+  .badge{display:inline-block;margin-top:26px;background:var(--orange);color:#fff;font-weight:600;padding:8px 22px;border-radius:999px;font-size:.95rem}
+
+  /* Sections */
+  section{padding:56px 0}
+  section.alt{background:var(--light)}
+  .kicker{color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.8rem;margin-bottom:8px}
+  h2{font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:22px}
+  h3{font-size:1.15rem;margin-bottom:10px}
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+  .card{background:#fff;border-radius:14px;padding:26px;box-shadow:0 3px 14px rgba(0,51,102,.10);border-top:4px solid var(--blue)}
+  section.alt .card{border-top-color:var(--orange)}
+  .card h3{margin-top:4px}
+  .card p{font-size:.97rem}
+
+  .panel{background:#fff;border-radius:18px;padding:34px;box-shadow:0 3px 16px rgba(0,51,102,.10);margin-bottom:30px;border-left:6px solid var(--blue)}
+  .panel .tag{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;font-size:.75rem;padding:4px 12px;border-radius:999px;margin-bottom:12px;letter-spacing:.06em;text-transform:uppercase}
+  .panel h3{font-size:1.5rem;margin-bottom:12px}
+  .panel .intro{font-size:1.02rem;margin-bottom:20px}
+  .panel hr{border:none;border-top:2px dashed #cfe1ee;margin:24px 0}
+  .detail{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+  .detail h4{color:var(--blue);font-size:.85rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+  .panel ul{margin-left:1.2em}
+  .plus{background:linear-gradient(120deg,#fffdf3,#fff8e0);border:1px solid #f3e2a4;border-radius:12px;padding:16px 20px;margin-top:22px}
+  .plus h4{color:#a06e00;font-size:.85rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+  .tarif{display:inline-block;background:var(--navy);color:#fff;font-weight:600;padding:6px 16px;border-radius:8px;margin-top:18px;font-size:.95rem}
+
+  .steps{counter-reset:s;display:grid;gap:16px;margin:18px 0}
+  .step{display:flex;gap:16px;align-items:flex-start}
+  .step::before{counter-increment:s;content:counter(s);flex:none;width:34px;height:34px;border-radius:50%;background:var(--orange);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .step p{margin:6px 0 0}
+
+  /* Contact band */
+  .contact-band{background:linear-gradient(120deg,var(--navy),var(--blue));color:#fff;padding:56px 0;text-align:center}
+  .contact-band h2{color:#fff;margin-bottom:10px}
+  .contact-band p{color:#eaf4fb;max-width:620px;margin:0 auto 30px}
+  .btns{display:flex;flex-wrap:wrap;gap:16px;justify-content:center}
+  .btn{display:inline-flex;align-items:center;gap:10px;border:none;border-radius:999px;padding:15px 30px;font-size:1.02rem;font-weight:600;text-decoration:none;cursor:pointer;font-family:inherit;transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.25)}
+  .btn-light{background:#fff;color:var(--navy)}
+  .btn-orange{background:var(--orange);color:#fff}
+  .contact-person{margin-top:34px;font-size:.95rem;color:#dbeef8}
+  .contact-person b{color:#fff}
+
+  footer{background:#00254a;color:#9fbdd6;padding:26px 0;text-align:center;font-size:.9rem}
+  footer a{color:#fff}
+
+  /* ===== Interface ludique & interactive ===== */
+  nav.menu{position:sticky;top:0;z-index:50;background:rgba(0,51,102,.97);backdrop-filter:blur(4px);box-shadow:0 2px 10px rgba(0,0,0,.2)}
+  nav.menu ul{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;list-style:none;margin:0;padding:10px 16px}
+  nav.menu a{color:#eaf4fb;text-decoration:none;font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:999px;transition:background .2s,color .2s}
+  nav.menu a:hover{background:var(--orange);color:#fff}
+
+  .hero{overflow:hidden;position:relative}
+  .bubbles{position:absolute;inset:0;pointer-events:none}
+  .bubble{position:absolute;border-radius:50%;opacity:.18;background:#fff;animation:float 8s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-22px) rotate(8deg)}}
+  @keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(18px)}}
+  .badge{animation:pop .6s ease-out}
+  @keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.12)}100%{transform:scale(1)}}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.visible{opacity:1;transform:none}
+
+  .card,.panel{transition:transform .22s ease,box-shadow .22s ease}
+  .card:hover{transform:translateY(-5px) scale(1.015);box-shadow:0 10px 24px rgba(0,51,102,.18)}
+
+  .pulse-num{counter-increment:s}
+  .step::before{transition:transform .2s ease}
+  .step:hover::before{transform:scale(1.18) rotate(8deg)}
+
+  /* Quiz */
+  .quiz{background:linear-gradient(135deg,#003366,#00A6D6);border-radius:18px;padding:38px;color:#fff;box-shadow:0 6px 20px rgba(0,51,102,.25)}
+  .quiz h3{color:#fff;font-size:1.4rem;margin-bottom:6px}
+  .quiz .q{background:rgba(255,255,255,.12);border-radius:12px;padding:20px 22px;margin-top:16px}
+  .quiz .q p{font-weight:600;margin-bottom:12px}
+  .quiz .choices{display:flex;flex-wrap:wrap;gap:10px}
+  .quiz button.choice{border:2px solid rgba(255,255,255,.55);background:transparent;color:#fff;font-weight:600;padding:9px 20px;border-radius:999px;cursor:pointer;font-size:.95rem;font-family:inherit;transition:all .2s}
+  .quiz button.choice:hover{background:rgba(255,255,255,.2)}
+  .quiz button.choice.good{background:#2ecc71;border-color:#2ecc71;color:#fff}
+  .quiz button.choice.bad{background:#e74c3c;border-color:#e74c3c;color:#fff}
+  .quiz .feedback{margin-top:12px;font-size:.95rem;min-height:1.3em;color:#ffe9a8;font-weight:600}
+
+  /* Stats */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px;text-align:center;margin-bottom:10px}
+  .stat{background:#fff;border-radius:14px;padding:22px 12px;box-shadow:0 3px 14px rgba(0,51,102,.10)}
+  .stat b{display:block;font-size:clamp(1.6rem,3.5vw,2.4rem);color:var(--orange)}
+  .stat span{font-size:.85rem;color:#48607a}
+
+  .site-band{margin-top:30px}
+  .site-band a.big-link{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--navy);font-weight:700;text-decoration:none;padding:13px 26px;border-radius:999px;border:2px solid rgba(255,255,255,.6);transition:transform .2s,box-shadow .2s}
+  .site-band a.big-link:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(0,0,0,.3)}
+
+  @media print{
+    nav.menu,.quiz,.bubbles{display:none}
+    header.hero{padding:40px 0}
+    section{padding:30px 0}
+  }
+</style>
+</head>
+<body>
+
+<nav class="menu" aria-label="Navigation">
+  <ul>
+    <li><a href="#qui">Qui sommes-nous ?</a></li>
+    <li><a href="#handigmatic">Handigmatic</a></li>
+    <li><a href="#emploi">Emploi &amp; handicap</a></li>
+    <li><a href="#types">Types de handicap</a></li>
+    <li><a href="#festirun">Festi'Run</a></li>
+    <li><a href="#quiz">Quiz</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="bubbles" aria-hidden="true">
+    <span class="bubble" style="width:70px;height:70px;left:6%;top:18%;animation-duration:7s"></span>
+    <span class="bubble" style="width:40px;height:40px;left:18%;bottom:14%;animation-duration:9s;animation-delay:1s"></span>
+    <span class="bubble" style="width:110px;height:110px;right:8%;top:24%;animation-name:float2;animation-duration:8s"></span>
+    <span class="bubble" style="width:55px;height:55px;right:22%;bottom:12%;animation-duration:6s;animation-delay:2s"></span>
+    <span class="bubble" style="width:26px;height:26px;left:45%;top:10%;animation-name:float2;animation-duration:5s;animation-delay:.5s"></span>
+  </div>
+  <div class="wrap">
+    <div class="logo">
+      <svg width="52" height="52" viewBox="0 0 52 52" aria-hidden="true">
+        <circle cx="26" cy="26" r="25" fill="#fff"/>
+        <path d="M12 20c0-4 3-7 7-7s7 3 7 7-3 7-7 7v9h-4v-9c-3 0-3 0-3-7z" fill="#00A6D6" transform="rotate(20 26 26)"/>
+        <circle cx="38" cy="16" r="7" fill="#F57E20"/>
+        <circle cx="38" cy="16" r="2.4" fill="#fff"/>
+      </svg>
+      <span>APF France handicap<small>association pour tous</small></span>
+    </div>
+    <h1>Sensibiliser au handicap</h1>
+    <p class="lead">Découvrez nos prestations de sensibilisation au handicap en milieu professionnel</p>
+    <span class="badge">Région Auvergne-Rhône-Alpes</span>
+  </div>
+</header>
+
+<section id="qui">
+  <div class="wrap">
+    <p class="kicker">Qui sommes-nous ?</p>
+    <h2>APF France handicap</h2>
+    <div class="stats reveal">
+      <div class="stat"><b class="count" data-target="1933" data-plain="true">0</b><span>année de création</span></div>
+      <div class="stat"><b><span class="count" data-target="100">0</span> 000</b><span>acteurs engagés</span></div>
+      <div class="stat"><b><span class="count" data-target="550">0</span>+</b><span>structures de proximité</span></div>
+      <div class="stat"><b><span class="count" data-target="90">0</span> ans</b><span>d'engagement</span></div>
+    </div>
+    <div class="cols">
+      <div class="card">
+        <h3>Une organisation reconnue d'utilité publique</h3>
+        <p>Créée en 1933, connue et reconnue jusqu'en avril 2018 sous le nom d'Association des Paralysés de France, APF France handicap est une importante organisation française de défense et de représentation des personnes en situation de handicap et de leurs proches.</p>
+        <p>Elle rassemble aujourd'hui <strong>100 000 acteurs</strong> : adhérent·e·s, élu·e·s, salarié·e·s, bénévoles et volontaires, usager·e·s, sans compter ses dizaines de milliers de donateurs, donatrices et sympathisant·e·s.</p>
+      </div>
+      <div class="card">
+        <h3>Des valeurs humanistes et militantes</h3>
+        <p>APF France handicap porte un projet d'intérêt général : celui d'une <strong>société inclusive et solidaire</strong>. Basée sur un fonctionnement démocratique, notre association agit contre les discriminations et pour l'égalité des droits, la citoyenneté, la participation sociale et le libre choix du mode de vie des personnes en situation de handicap et de leur famille.</p>
+        <p><strong>Deux piliers guident notre action : l'approche inclusive et celle par les droits.</strong></p>
+      </div>
+      <div class="card">
+        <h3>Un réseau national de proximité</h3>
+        <p>APF France handicap intervient dans tous les domaines de la vie quotidienne grâce à son réseau national de plus de <strong>550 structures</strong> (délégations, services et établissements sociaux et médico-sociaux et entreprises adaptées).</p>
+        <ul>
+          <li>La représentation, la défense et la promotion des droits des personnes,</li>
+          <li>Le soutien aux personnes en situation de handicap et à leurs proches,</li>
+          <li>La dispense de réponses sociales, de soins à domicile ou en établissement et de solutions d'hébergement,</li>
+          <li>L'accompagnement vers l'emploi des personnes en situation de handicap.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="sommaire">
+  <div class="wrap">
+    <p class="kicker">Sommaire</p>
+    <h2>Nos prestations de sensibilisation</h2>
+    <div class="cols">
+      <div class="card">
+        <h3>Une immersion ludique</h3>
+        <p><strong>Handigmatic</strong> — Un live game pour sensibiliser autrement. Une expérience immersive pour faire évoluer les représentations et renforcer la cohésion d'équipe.</p>
+      </div>
+      <div class="card">
+        <h3>Des sensibilisations interactives</h3>
+        <p><strong>Emploi et handicap : de quoi parle-t-on ?</strong> et <strong>À la découverte des différents types de handicap</strong> — Comprendre, échanger et expérimenter pour agir concrètement, avec des personnes en situation de handicap.</p>
+      </div>
+      <div class="card">
+        <h3>Un défi collectif</h3>
+        <p><strong>Le Festi'Run</strong> — Un challenge connecté, sportif et solidaire pour fédérer vos équipes autour d'un projet engagé.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pourquoi">
+  <div class="wrap">
+    <p class="kicker">Pourquoi sensibiliser ?</p>
+    <h2>Une démarche humaine, collective et engageante</h2>
+    <p>Parce que le handicap fait partie intégrante de notre société et concerne toutes les organisations, APF France handicap vous accompagne pour concrétiser vos engagements.</p>
+    <div class="cols">
+      <div class="card">
+        <h3>Sensibiliser vos collaborateurs, c'est :</h3>
+        <ul>
+          <li>Répondre à vos obligations légales en matière d'emploi et de non-discrimination,</li>
+          <li>Favoriser l'inclusion et la diversité au sein de votre entreprise,</li>
+          <li>Renforcer la cohésion autour de valeurs partagées,</li>
+          <li>Améliorer la qualité de vie au travail en développant un climat bienveillant,</li>
+          <li>Donner vie à vos engagements RSE par des actions concrètes et mémorables.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Nos ateliers offrent un temps d'échange privilégié pour :</h3>
+        <ul>
+          <li>Comprendre les réalités du handicap dans un cadre bienveillant,</li>
+          <li>Changer de regard grâce à des témoignages vivants et des expériences interactives,</li>
+          <li>S'impliquer activement dans une démarche inclusive, ludique et impactante.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="plus">
+      <h4>Bon à savoir</h4>
+      <p style="margin:0"><strong>Nos actions de sensibilisation peuvent être déductibles de votre contribution AGEFIPH à hauteur maximale de 10 % !</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="atouts">
+  <div class="wrap">
+    <p class="kicker">Pourquoi faire appel à nous ?</p>
+    <div class="cols">
+      <div class="card">
+        <h3>Une expertise reconnue</h3>
+        <p>Plus de <strong>90 ans d'engagement</strong> dans le champ du handicap.</p>
+      </div>
+      <div class="card">
+        <h3>Des prestations clés en main</h3>
+        <p>Simples et rapidement déployables pour vos équipes, adaptées à vos besoins, vos équipes et vos objectifs.</p>
+      </div>
+      <div class="card">
+        <h3>Des modules incarnés</h3>
+        <p>Animés par des <strong>personnes en situation de handicap</strong>, mêlant apports théoriques, témoignages et mises en situation.</p>
+      </div>
+      <div class="card">
+        <h3>Une approche innovante et dynamique</h3>
+        <p>Des formats ludiques et participatifs qui impliquent pleinement vos équipes.</p>
+      </div>
+      <div class="card" style="border-top-color:var(--gold)">
+        <h3>Un besoin particulier ?</h3>
+        <p><strong>Nous pouvons créer avec vous des sensibilisations sur mesure</strong>, adaptées à vos équipes et à vos objectifs. Qu'il s'agisse d'adapter un module existant ou de concevoir un format entièrement personnalisé, nos équipes sont là pour vous accompagner dans votre projet !</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="handigmatic">
+  <div class="wrap">
+    <p class="kicker">Une immersion ludique</p>
+    <h2>Handigmatic : un live game pour sensibiliser autrement</h2>
+    <p class="intro" style="max-width:760px">Une solution clé en main idéale pour rassembler vos collaborateurs autour d'une sensibilisation innovante et ludique.</p>
+    <div class="panel">
+      <h3>Le principe</h3>
+      <p class="intro">Inspiré du format Escape Game, le live game Handigmatic plonge vos collaborateurs dans une aventure immersive, au cœur d'une enquête.</p>
+      <div class="steps">
+        <div class="step"><p>Pour tenter de déjouer un braquage en cours, vos collaborateurs ont, en équipe, <strong>60 minutes pour résoudre des énigmes liées au handicap</strong> en mêlant logique, réflexion et imagination, à travers <strong>5 ateliers</strong>.</p></div>
+        <div class="step"><p>À l'issue du jeu, les participants reviennent sur leur aventure avec notre animateur et une personne en situation de handicap pour un <strong>debriefing d'une heure</strong>. L'occasion d'échanger et d'aborder les différents types de handicap ainsi que les bonnes pratiques.</p></div>
+      </div>
+      <hr>
+      <div class="detail">
+        <div>
+          <h4>Public visé</h4>
+          <p>Tous collaborateurs.</p>
+          <h4 style="margin-top:18px">Objectifs</h4>
+          <ul>
+            <li>Sensibiliser aux différents types de handicap.</li>
+            <li>Favoriser la cohésion et l'esprit d'équipe.</li>
+            <li>Offrir une expérience ludique et marquante.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Modalités</h4>
+          <ul>
+            <li><strong>Durée :</strong> 2h par session (60 minutes de jeu + 60 minutes de débriefing).</li>
+            <li><strong>Participants :</strong> jusqu'à 60 personnes sur une journée (15 personnes max par session).</li>
+            <li><strong>Format :</strong> présentiel, dans une salle de votre choix ou en extérieur.</li>
+            <li><strong>Animation :</strong> un animateur + une personne en situation de handicap.</li>
+            <li>Un livret individuel est remis à chaque participant à l'issue de la session.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="plus">
+        <h4>Les atouts</h4>
+        <ul style="margin-bottom:0">
+          <li>Le scénario théâtralisé et les mécanismes sophistiqués qui rendent le jeu attrayant pour sensibiliser de façon ludique et marquer les esprits.</li>
+          <li>La possibilité de sensibiliser un grand nombre de collaborateurs.</li>
+          <li>La rapidité d'installation du dispositif.</li>
+        </ul>
+      </div>
+      <span class="tarif">Tarif : sur demande</span>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="emploi">
+  <div class="wrap">
+    <p class="kicker">Les sensibilisations interactives</p>
+    <h2>Emploi et handicap : de quoi parle-t-on ?</h2>
+    <div class="panel">
+      <span class="tag">Disponible à partir de 2026</span>
+      <p class="intro">Un atelier pour comprendre concrètement les enjeux du handicap au travail et faire tomber les idées reçues, dans un cadre d'échange bienveillant et participatif.</p>
+      <hr>
+      <div class="detail">
+        <div>
+          <h4>Le principe</h4>
+          <p>Ce module interactif permet de déconstruire les représentations autour de l'emploi des personnes en situation de handicap. Les participants sont confrontés à des situations concrètes pour lutter contre les discriminations et favoriser une politique RH inclusive, permettant ainsi de répondre aux obligations légales.</p>
+          <h4 style="margin-top:18px">Public visé</h4>
+          <p>Managers, services RH et salariés.</p>
+        </div>
+        <div>
+          <h4>Objectifs</h4>
+          <ul>
+            <li>Déconstruire les représentations des personnes en situation de handicap au travail.</li>
+            <li>Lutter contre les discriminations.</li>
+            <li>Rappeler que l'accès à l'emploi est un droit.</li>
+            <li>Comprendre l'obligation d'emploi et ses bénéficiaires.</li>
+            <li>Identifier les partenaires à mobiliser.</li>
+          </ul>
+          <h4 style="margin-top:18px">Modalités</h4>
+          <ul>
+            <li><strong>Durée :</strong> 3h à 3h30.</li>
+            <li><strong>Participants :</strong> 8 à 15.</li>
+            <li><strong>Format :</strong> présentiel.</li>
+            <li><strong>Animation :</strong> un animateur + une personne en situation de handicap.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="plus">
+        <h4>Les atouts</h4>
+        <ul style="margin-bottom:0">
+          <li>Facilite la mise en place d'une politique RH inclusive.</li>
+          <li>Favorise les échanges et partages d'expérience.</li>
+          <li>S'intègre facilement aux actions de formation interne.</li>
+        </ul>
+      </div>
+      <span class="tarif">Tarif : sur demande</span>
+    </div>
+  </div>
+</section>
+
+<section id="types">
+  <div class="wrap">
+    <p class="kicker">Les sensibilisations interactives</p>
+    <h2>À la découverte des différents types de handicap</h2>
+    <p class="intro" style="max-width:760px"><strong>Mieux comprendre pour mieux inclure :</strong> une sensibilisation vivante pour changer de regard et expérimenter la diversité des situations de handicap.</p>
+    <div class="panel">
+      <h3>Le principe</h3>
+      <p class="intro">Pourquoi parle-t-on de personne en situation de handicap et non de personne handicapée ? Quel intérêt à savoir distinguer les différents types de handicap ?</p>
+      <p class="intro">Ce module invite à découvrir, comprendre et expérimenter la pluralité des situations de handicap, pour mieux interagir, déconstruire les idées reçues et renforcer la culture inclusive au sein de votre organisation.</p>
+      <hr>
+      <div class="detail">
+        <div>
+          <h4>Public visé</h4>
+          <p>Tous collaborateurs.</p>
+          <h4 style="margin-top:18px">Modalités</h4>
+          <ul>
+            <li><strong>Durée :</strong> 3h à 3h30.</li>
+            <li><strong>Participants :</strong> 8 à 15.</li>
+            <li><strong>Format :</strong> présentiel.</li>
+            <li><strong>Animation :</strong> un animateur + une personne en situation de handicap.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Objectifs</h4>
+          <p>Cette sensibilisation permet d'appréhender la différence avec bienveillance et vise à :</p>
+          <ul>
+            <li>Différencier et reconnaître les types de situations de handicap.</li>
+            <li>Adopter les bons réflexes pour interagir avec les personnes concernées.</li>
+            <li>Casser les préjugés et dépasser les idées reçues.</li>
+            <li>Tester et vivre des situations de handicap à travers des mises en pratique.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="plus">
+        <h4>Les atouts</h4>
+        <ul style="margin-bottom:0">
+          <li>Une approche participative favorisant l'échange et la mise en pratique.</li>
+          <li>Des mises en situation concrètes qui marquent les esprits.</li>
+          <li>Favorise les échanges et le partage d'expérience.</li>
+        </ul>
+      </div>
+      <span class="tarif">Tarif : sur demande</span>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="festirun">
+  <div class="wrap">
+    <p class="kicker">Un défi collectif</p>
+    <h2>Le Festi'Run : un challenge connecté, sportif et solidaire !</h2>
+    <p class="intro" style="max-width:760px">Le challenge inter-entreprises qui allie sport, cohésion et sensibilisation : un format autonome et clé en main pour mobiliser vos collaborateurs autour du handicap.</p>
+    <div class="panel">
+      <h3>Le principe</h3>
+      <p class="intro">Le Festi'Run est un <strong>challenge connecté inter-entreprises national</strong> qui fédère vos collaborateurs autour d'un projet collectif, ludique et solidaire.</p>
+      <p class="intro">En toute autonomie, seuls ou en équipe, vos collaborateurs ont pour objectif de cumuler un maximum de kilomètres (marche et course) et relèvent des défis autour du handicap via notre application clé en main.</p>
+      <hr>
+      <div class="detail">
+        <div>
+          <h4>Public visé</h4>
+          <p>Tous collaborateurs.</p>
+          <h4 style="margin-top:18px">Modalités</h4>
+          <ul>
+            <li><strong>Durée :</strong> 3 semaines de challenge : du 2 au 22 novembre 2026.</li>
+            <li>Autonomie des participants dans l'organisation des sessions de course/marche.</li>
+            <li>Accès pour tous les participants à une application clé en main.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Objectifs</h4>
+          <ul>
+            <li>Sensibiliser au handicap de manière ludique et dynamique.</li>
+            <li>Fédérer les équipes autour d'un projet collectif.</li>
+            <li>Concrétiser l'engagement RSE de l'entreprise.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="plus">
+        <h4>Les atouts</h4>
+        <ul style="margin-bottom:0">
+          <li>Un challenge sportif et solidaire complet et adaptable.</li>
+          <li>Une sensibilisation simple à déployer et motivante grâce à une application clé en main, collaborative et conviviale.</li>
+          <li>Des contenus exclusifs et des défis ludiques et engagés conçus par nos équipes.</li>
+          <li>Un bon moyen de stimuler la cohésion et le bien-être des collaborateurs.</li>
+        </ul>
+      </div>
+      <span class="tarif">Tarif : sur demande</span>
+    </div>
+  </div>
+</section>
+
+<section id="aller-plus-loin">
+  <div class="wrap">
+    <p class="kicker">Pour aller plus loin</p>
+    <h2>Développez durablement votre culture inclusive</h2>
+    <p style="max-width:760px">La sensibilisation est une première étape essentielle. Pour ancrer durablement une démarche inclusive et renforcer les compétences de vos équipes, APF France handicap vous propose également des <strong>formations professionnelles certifiantes</strong>, conçues et animées par nos organismes experts : APF Formation et le TechLab.</p>
+    <div class="cols">
+      <div class="card">
+        <h3>APF Formation – Développez vos compétences handicap</h3>
+        <p>Organisme de formation <strong>certifié Qualiopi</strong>, APF Formation propose de nombreux modules pour professionnaliser vos équipes autour du handicap, de l'accueil, du recrutement inclusif ou de l'accompagnement.</p>
+        <p>Quelques exemples de formations :</p>
+        <ul>
+          <li>Bien accueillir les personnes en situation de handicap dans son établissement ou sur un lieu recevant du public</li>
+          <li>Recruter un·e collaborateur·trice en situation de handicap</li>
+          <li>Référent handicap : maîtriser son rôle et ses missions</li>
+          <li>Comprendre et accompagner les aidants familiaux</li>
+        </ul>
+        <p>Et de nombreuses autres formations adaptées à vos besoins et à votre secteur.</p>
+      </div>
+      <div class="card">
+        <h3>Le TechLab – Concevoir pour tous grâce au design inclusif</h3>
+        <p>Le TechLab, pôle innovation d'APF France handicap, accompagne les organisations dans une approche de <strong>conception universelle, accessible et durable</strong>.</p>
+        <p>Il propose notamment la formation <strong>« Concevoir pour tous : formation au design inclusif »</strong>, une initiation concrète aux principes du design inclusif pour :</p>
+        <ul>
+          <li>intégrer l'accessibilité dès la conception de vos produits, services ou environnements,</li>
+          <li>prévenir les situations d'exclusion,</li>
+          <li>améliorer l'expérience de tous les utilisateurs.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="quiz">
+  <div class="wrap">
+    <p class="kicker">Le coin ludique</p>
+    <h2>Testez vos connaissances !</h2>
+    <p style="max-width:700px;margin-bottom:24px">Trois petites questions pour vérifier que vous êtes prêt·e à sensibiliser vos équipes. Cliquez sur une réponse pour découvrir si c'est juste !</p>
+    <div class="quiz reveal">
+      <h3>Quiz express : vrai ou faux ?</h3>
+      <div class="q" data-good="0">
+        <p>1. Environ 80 % des handicaps sont invisibles.</p>
+        <div class="choices">
+          <button class="choice" type="button">Vrai</button>
+          <button class="choice" type="button">Faux</button>
+        </div>
+        <p class="feedback"></p>
+      </div>
+      <div class="q" data-good="1">
+        <p>2. Une entreprise d'au moins 20 salariés est soumise à l'obligation d'emploi de personnes en situation de handicap.</p>
+        <div class="choices">
+          <button class="choice" type="button">Vrai</button>
+          <button class="choice" type="button">Faux</button>
+        </div>
+        <p class="feedback"></p>
+      </div>
+      <div class="q" data-good="0">
+        <p>3. Les actions de sensibilisation au handicap peuvent être déductibles de la contribution AGEFIPH (dans la limite de 10 %).</p>
+        <div class="choices">
+          <button class="choice" type="button">Vrai</button>
+          <button class="choice" type="button">Faux</button>
+        </div>
+        <p class="feedback"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="contact-band" id="contact">
+  <div class="wrap">
+    <h2>Une question ? Un devis ?</h2>
+    <p>Contactez-nous pour échanger sur vos besoins et construire ensemble votre projet de sensibilisation.</p>
+    <div class="btns">
+      <a class="btn btn-light" href="mailto:elise.vine@apf.asso.fr">✉️ elise.vine@apf.asso.fr</a>
+      <a class="btn btn-light" href="tel:+33685493992">📞 06 85 49 39 92</a>
+      <button class="btn btn-orange" id="downloadBtn" type="button">⬇️ Télécharger le support</button>
+    </div>
+    <div class="site-band">
+      <a class="big-link" href="https://apf-francehandicap.org" target="_blank" rel="noopener">🌐 Découvrez toutes nos actions sur apf-francehandicap.org</a>
+    </div>
+    <p class="contact-person">Mylène LE LAMER — Cheffe de projet sensibilisation en milieu professionnel — <b>mylene.le-lamer@apf.asso.fr</b> — <b>06 70 44 70 65</b></p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    APF France handicap — <a href="https://apf-francehandicap.org" target="_blank" rel="noopener">apf-francehandicap.org</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById('downloadBtn').addEventListener('click', function(){
+  var blob = new Blob(['<!doctype html>\n' + document.documentElement.outerHTML], {type:'text/html'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'Catalogue_sensibilisation_handicap_APF.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(url); }, 2000);
+});
+
+/* --- Animations à l'apparition --- */
+document.querySelectorAll('.card, .panel, .panel h3').forEach(function(el){ el.classList.add('reveal'); });
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+/* --- Compteurs animés --- */
+var cio = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(!e.isIntersecting) return;
+    var el = e.target, target = parseInt(el.dataset.target,10), start = null;
+    function tick(t){
+      if(!start) start = t;
+      var p = Math.min((t-start)/1200, 1);
+      var val = Math.floor(target * (1-Math.pow(1-p,3)));
+      el.textContent = el.dataset.plain ? target : val;
+      if(p<1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+    cio.unobserve(el);
+  });
+},{threshold:.6});
+document.querySelectorAll('.count').forEach(function(el){ cio.observe(el); });
+
+/* --- Quiz interactif --- */
+var explanations = {
+  0:"✅ Exact ! La grande majorité des handicaps sont invisibles (maladies chroniques, troubles dys, santé mentale…). D'où l'importance de la sensibilisation !",
+  1:"✅ Exact ! Toute entreprise de 20 salariés et plus doit employer au moins 6 % de personnes en situation de handicap — d'où l'intérêt de nos ateliers « Emploi et handicap ».",
+  2:"✅ Exact ! Vos actions de sensibilisation peuvent être déductibles de votre contribution AGEFIPH à hauteur maximale de 10 %."
+};
+document.querySelectorAll('.quiz .q').forEach(function(q, qi){
+  var good = parseInt(q.dataset.good,10);
+  var buttons = q.querySelectorAll('.choice');
+  var feedback = q.querySelector('.feedback');
+  buttons.forEach(function(btn, bi){
+    btn.addEventListener('click', function(){
+      buttons.forEach(function(b){ b.disabled = true; });
+      if(bi === good){
+        btn.classList.add('good');
+        feedback.textContent = explanations[qi];
+        feedback.style.color = '#b8f3cd';
+      }else{
+        btn.classList.add('bad');
+        buttons[good].classList.add('good');
+        feedback.textContent = "😀 Presque ! La bonne réponse est mise en évidence. " + explanations[qi].replace('✅ Exact ! ','');
+        feedback.style.color = '#ffd7d7';
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>
